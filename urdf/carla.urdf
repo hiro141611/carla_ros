@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+    <robot name="hiro">
+
+	<material name="white">
+		<color rgba="1 1 1 1" />
+	</material>
+
+	<link name = "hiro">
+		<visual>
+			<geometry>
+				<box size="0.15 0.15 0.15" />
+			</geometry>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+		</visual>
+	</link>
+
+	<link name ="carla_lidar">
+		<visual>
+			<geometry>
+				<box size="0.15 0.15 0.2" />
+			</geometry>
+			<material name="white" />
+		</visual>
+	</link>
+
+	<joint name="hiro_lidar_joint" type="fixed">
+		<parent link="hiro" />
+		<child link="carla_lidar" />
+		<origin xyz="0 0 2" rpy="0 0 0"/>
+	</joint>
+
+	<link name ="carla_imu">
+		<visual>
+			<geometry>
+				<box size="0.15 0.15 0.2" />
+			</geometry>
+			<material name="white" />
+		</visual>
+	</link>
+
+	<joint name="hiro_imu_joint" type="fixed">
+		<parent link="hiro" />
+		<child link="carla_imu" />
+		<origin xyz="2 0 2" rpy="0 0 0"/>
+	</joint>
+
+</robot>
